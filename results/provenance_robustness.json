@@ -1,0 +1,18 @@
+{
+  "clock_offset": {
+    "calibrated_signature_valid": true,
+    "raw_signature_valid": false
+  },
+  "compromised_key": {
+    "forged_record_validates": true,
+    "provenance_assured": false
+  },
+  "legitimate_transcode": {
+    "canonical_signature_valid": true,
+    "raw_signature_valid": false
+  },
+  "missing_intermediate": {
+    "location_identifiable_from_archive": false,
+    "two_distinct_causes_identical_archive": true
+  }
+}
