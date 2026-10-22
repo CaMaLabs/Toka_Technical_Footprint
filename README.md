@@ -11,6 +11,7 @@ Open, evidence-first research into public technical disclosures associated with 
 ## Start here
 - [Evidence register](docs/EVIDENCE_REGISTER.md)
 - [Patent comparison](docs/PATENT_COMPARISON.md)
+- [Discreet camera access patent — US10674118B1](docs/PATENT_DISCREET_CAMERA_ACCESS_US10674118B1.md)
 - [Researcher and open-source leads](docs/RESEARCH_LEADS.md)
 - [Architecture hypotheses](docs/ARCHITECTURE_HYPOTHESES.md)
 - [Offline stream-framing fixture](src/framing_lab.py), [tests](tests/test_framing_lab.py)
