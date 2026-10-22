@@ -1,0 +1,6 @@
+[
+ {"case":"baseline","origin_valid":true,"wire_matches_origin":true,"archive_matches_origin":true,"cloud_matches_origin":true,"wire_matches_archive":true,"archive_matches_cloud":true,"inferred_boundary":"no_divergence_observed","archive_only_can_localize":null},
+ {"case":"transit","origin_valid":true,"wire_matches_origin":false,"archive_matches_origin":false,"cloud_matches_origin":false,"wire_matches_archive":true,"archive_matches_cloud":true,"inferred_boundary":"before_or_at_wire_observation","archive_only_can_localize":false},
+ {"case":"recorder","origin_valid":true,"wire_matches_origin":true,"archive_matches_origin":false,"cloud_matches_origin":false,"wire_matches_archive":false,"archive_matches_cloud":true,"inferred_boundary":"between_wire_and_archive","archive_only_can_localize":false},
+ {"case":"cloud","origin_valid":true,"wire_matches_origin":true,"archive_matches_origin":true,"cloud_matches_origin":false,"wire_matches_archive":true,"archive_matches_cloud":false,"inferred_boundary":"between_archive_and_cloud","archive_only_can_localize":false}
+]
