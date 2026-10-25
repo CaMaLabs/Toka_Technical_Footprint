@@ -30,16 +30,17 @@ def bitstream_hash(path, codec):
     fmt = {'h264': 'h264', 'hevc': 'hevc'}.get(codec)
     if not fmt:
         return None
-    proc = subprocess.Popen(['ffmpeg', '-v', 'error', '-i', str(path), '-map',
-        '0:v:0', '-c:v', 'copy', '-f', fmt, '-'],
-        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    h = hashlib.sha256()
-    for chunk in iter(lambda: proc.stdout.read(1048576), b''):
-        h.update(chunk)
-    error = proc.stderr.read()
-    if proc.wait(timeout=180):
-        raise RuntimeError(error.decode(errors='replace'))
-    return h.hexdigest()
+    with subprocess.Popen(
+        ['ffmpeg', '-nostdin', '-v', 'error', '-i', str(path),
+         '-map', '0:v:0', '-c:v', 'copy', '-f', fmt, '-'],
+        stdout=subprocess.PIPE, stderr=subprocess.DEVNULL
+    ) as proc:
+        h = hashlib.sha256()
+        for chunk in iter(lambda: proc.stdout.read(1048576), b''):
+            h.update(chunk)
+        if proc.wait(timeout=180):
+            raise RuntimeError(f'FFmpeg bitstream extraction failed for {path}')
+        return h.hexdigest()
 
 def metrics(reference, candidate, kind, stats):
     graph = ('[0:v]setpts=PTS-STARTPTS,format=yuv420p[a];'
