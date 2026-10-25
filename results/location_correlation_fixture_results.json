@@ -1,0 +1,54 @@
+{
+  "cases": [
+    {
+      "case": "stable",
+      "candidates": {
+        "zone-alpha": 2
+      },
+      "decision": "zone-alpha",
+      "status": "resolved"
+    },
+    {
+      "case": "shared_nat",
+      "candidates": {
+        "zone-alpha": 1,
+        "zone-beta": 1
+      },
+      "decision": null,
+      "status": "abstain"
+    },
+    {
+      "case": "stale",
+      "candidates": {},
+      "decision": null,
+      "status": "abstain"
+    },
+    {
+      "case": "randomized_mac",
+      "candidates": {},
+      "decision": null,
+      "status": "abstain"
+    },
+    {
+      "case": "single_sensor",
+      "candidates": {
+        "zone-alpha": 1
+      },
+      "decision": null,
+      "status": "abstain"
+    },
+    {
+      "case": "conflicting",
+      "candidates": {
+        "zone-alpha": 1,
+        "zone-beta": 1
+      },
+      "decision": null,
+      "status": "abstain"
+    }
+  ],
+  "correct_resolution": 1,
+  "false_resolution": 0,
+  "abstentions": 5,
+  "note": "Hand-constructed fixtures; descriptive checks, not predictive accuracy."
+}
