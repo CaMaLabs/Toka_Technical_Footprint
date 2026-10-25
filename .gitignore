@@ -3,3 +3,10 @@ __pycache__/
 .pytest_cache/
 .venv/
 .env
+local_recordings/
+fixtures/
+inventory.sqlite
+*.sqlite
+scan.xml
+onvif_local.json
+results/local/
