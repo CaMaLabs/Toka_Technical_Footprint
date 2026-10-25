@@ -10,3 +10,5 @@ inventory.sqlite
 scan.xml
 onvif_local.json
 results/local/
+hyperlocal_local.sqlite
+hyperlocal_local.sqlite-*
