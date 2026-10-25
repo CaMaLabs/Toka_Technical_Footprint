@@ -17,7 +17,7 @@ small{color:#a9b8cb}</style><h1>Authorized recording review</h1><p>Offline file 
 <article><h3>Remuxed</h3><video controls preload="metadata" src="/main_remux.mp4"></video></article></div>
 <p><small>Press play on each panel to compare. Browser controls are independent; clips aren't time-synchronized.</small></p></html>"""
 
-def serve(directory,port):
+def serve(directory,port,host="127.0.0.1"):
     root=Path(directory).resolve()
     if not root.is_dir():raise ValueError("directory does not exist")
     names={"main.mp4","sub.mp4","main_transcoded.mp4","main_modified.mp4","main_remux.mp4"}
@@ -45,8 +45,8 @@ def serve(directory,port):
             super().end_headers()
         def log_message(self,fmt,*args):
             pass
-    httpd=ThreadingHTTPServer(("127.0.0.1",port),Handler)
-    print(f"Viewer: http://127.0.0.1:{port}",flush=True)
+    httpd=ThreadingHTTPServer((host,port),Handler)
+    print(f"Viewer: http://{host}:{port}",flush=True)
     try:httpd.serve_forever()
     except KeyboardInterrupt:pass
     finally:httpd.server_close()
@@ -55,5 +55,6 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument("--directory",default="local_recordings/viewer")
     p.add_argument("--port",type=int,default=18766)
-    args=p.parse_args();serve(args.directory,args.port)
+    p.add_argument("--host",default="127.0.0.1",help="Bind address (only use a trusted LAN interface)")
+    args=p.parse_args();serve(args.directory,args.port,args.host)
 if __name__=="__main__":main()
